@@ -134,15 +134,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\ExpenseCategory.cs" />
-    <Compile Include="Models\ExpenseItem.cs" />
-    <Compile Include="Models\FusionDbContext.cs" />
-    <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\Organization.cs" />
-    <Compile Include="Models\Outlet.cs" />
-    <Compile Include="Models\Party.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -7530,6 +7521,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -7540,6 +7532,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FuasionPoRepository\FuasionPoRepository.csproj">
+      <Project>{82440955-da09-479f-b0c9-1d5eb6d45327}</Project>
+      <Name>FuasionPoRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FusionPosModels\FusionPosModels.csproj">
+      <Project>{91170ae9-2722-4b3d-92a5-5f86b32e9788}</Project>
+      <Name>FusionPosModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

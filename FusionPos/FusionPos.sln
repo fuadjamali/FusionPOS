@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FusionPosWeb", "FusionPosWeb\FusionPosWeb.csproj", "{8C956331-70BB-40C9-869B-5AD897B4BEE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FusionPosModels", "FusionPosModels\FusionPosModels.csproj", "{91170AE9-2722-4B3D-92A5-5F86B32E9788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuasionPoRepository", "FuasionPoRepository\FuasionPoRepository.csproj", "{82440955-DA09-479F-B0C9-1D5EB6D45327}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{8C956331-70BB-40C9-869B-5AD897B4BEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C956331-70BB-40C9-869B-5AD897B4BEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C956331-70BB-40C9-869B-5AD897B4BEE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91170AE9-2722-4B3D-92A5-5F86B32E9788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91170AE9-2722-4B3D-92A5-5F86B32E9788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91170AE9-2722-4B3D-92A5-5F86B32E9788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91170AE9-2722-4B3D-92A5-5F86B32E9788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82440955-DA09-479F-B0C9-1D5EB6D45327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82440955-DA09-479F-B0C9-1D5EB6D45327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82440955-DA09-479F-B0C9-1D5EB6D45327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82440955-DA09-479F-B0C9-1D5EB6D45327}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace FusionPosWeb.Models
+namespace FusionPosModels.EntityModels
 {
     public class Outlet
     {
@@ -15,7 +11,7 @@ namespace FusionPosWeb.Models
         public string Code { get; set; }
         [Required]
         public string ContactNo { get; set; }
-        [Required(ErrorMessage = "Address mus be entere")]
+        [Required(ErrorMessage = "Address must be entere")]
         public string Address { get; set; }
         [Required]
         public int OrganizationId { get; set; }
