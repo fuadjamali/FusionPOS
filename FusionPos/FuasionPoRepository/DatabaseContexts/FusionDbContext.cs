@@ -6,8 +6,5 @@ namespace FuasionPoRepository.DatabaseContexts
 {
     public class FusionDbContext : DbContext
     {
-
-       
-
     }
 }
