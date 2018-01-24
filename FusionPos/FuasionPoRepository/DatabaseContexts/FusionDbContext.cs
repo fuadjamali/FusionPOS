@@ -8,7 +8,8 @@ namespace FuasionPoRepository.DatabaseContexts
     {
         public DbSet<Organization> Organizations { get; set; }
         public DbSet<Outlet> Outlets { get; set; }
-
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Item> Items { get; set; }
 
     }
 }
