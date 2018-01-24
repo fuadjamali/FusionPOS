@@ -50,9 +50,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContexts\FusionDbContext.cs" />
+    <Compile Include="Migrations\201801241127470_InitialCreate.cs" />
+    <Compile Include="Migrations\201801241127470_InitialCreate.Designer.cs">
+      <DependentUpon>201801241127470_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801241150178_OutletsDbSet_Added.cs" />
+    <Compile Include="Migrations\201801241150178_OutletsDbSet_Added.Designer.cs">
+      <DependentUpon>201801241150178_OutletsDbSet_Added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -62,6 +70,14 @@
       <Project>{91170ae9-2722-4b3d-92a5-5f86b32e9788}</Project>
       <Name>FusionPosModels</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201801241127470_InitialCreate.resx">
+      <DependentUpon>201801241127470_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801241150178_OutletsDbSet_Added.resx">
+      <DependentUpon>201801241150178_OutletsDbSet_Added.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

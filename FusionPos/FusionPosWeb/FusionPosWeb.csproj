@@ -47,11 +47,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -131,6 +131,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrganizationsController.cs" />
+    <Compile Include="Controllers\OutletsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -7518,6 +7520,16 @@
     <Content Include="Theme\plugins\input-mask\phone-codes\phone-codes.json" />
     <Content Include="Theme\README.md" />
     <Content Include="Theme\yarn.lock" />
+    <Content Include="Views\Organizations\Create.cshtml" />
+    <Content Include="Views\Organizations\Delete.cshtml" />
+    <Content Include="Views\Organizations\Details.cshtml" />
+    <Content Include="Views\Organizations\Edit.cshtml" />
+    <Content Include="Views\Organizations\Index.cshtml" />
+    <Content Include="Views\Outlets\Create.cshtml" />
+    <Content Include="Views\Outlets\Delete.cshtml" />
+    <Content Include="Views\Outlets\Details.cshtml" />
+    <Content Include="Views\Outlets\Edit.cshtml" />
+    <Content Include="Views\Outlets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -7534,9 +7546,9 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FuasionPoRepository\FuasionPoRepository.csproj">
+    <ProjectReference Include="..\FuasionPoRepository\FuasionPosRepository.csproj">
       <Project>{82440955-da09-479f-b0c9-1d5eb6d45327}</Project>
-      <Name>FuasionPoRepository</Name>
+      <Name>FuasionPosRepository</Name>
     </ProjectReference>
     <ProjectReference Include="..\FusionPosModels\FusionPosModels.csproj">
       <Project>{91170ae9-2722-4b3d-92a5-5f86b32e9788}</Project>

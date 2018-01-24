@@ -15,7 +15,6 @@ namespace FusionPosModels.EntityModels
         public bool IsRoot { get; set; }
         public int? ParentId { get; set; }
         public virtual Category Parent { get; set; }
-
         public List<Category> ChildCategories { get; set; } 
         public byte[] Image { get; set; }
 

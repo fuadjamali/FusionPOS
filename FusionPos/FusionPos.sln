@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FusionPosWeb", "FusionPosWe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FusionPosModels", "FusionPosModels\FusionPosModels.csproj", "{91170AE9-2722-4B3D-92A5-5F86B32E9788}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuasionPoRepository", "FuasionPoRepository\FuasionPoRepository.csproj", "{82440955-DA09-479F-B0C9-1D5EB6D45327}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuasionPosRepository", "FuasionPoRepository\FuasionPosRepository.csproj", "{82440955-DA09-479F-B0C9-1D5EB6D45327}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
