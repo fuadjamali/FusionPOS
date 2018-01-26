@@ -62,6 +62,10 @@
     <Compile Include="Migrations\201801260158302_Party_Setup_Added.Designer.cs">
       <DependentUpon>201801260158302_Party_Setup_Added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801260536569_employee_setup_added.cs" />
+    <Compile Include="Migrations\201801260536569_employee_setup_added.Designer.cs">
+      <DependentUpon>201801260536569_employee_setup_added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -84,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801260158302_Party_Setup_Added.resx">
       <DependentUpon>201801260158302_Party_Setup_Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801260536569_employee_setup_added.resx">
+      <DependentUpon>201801260536569_employee_setup_added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
