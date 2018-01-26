@@ -58,6 +58,10 @@
     <Compile Include="Migrations\201801241150178_OutletsDbSet_Added.Designer.cs">
       <DependentUpon>201801241150178_OutletsDbSet_Added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801260158302_Party_Setup_Added.cs" />
+    <Compile Include="Migrations\201801260158302_Party_Setup_Added.Designer.cs">
+      <DependentUpon>201801260158302_Party_Setup_Added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801241150178_OutletsDbSet_Added.resx">
       <DependentUpon>201801241150178_OutletsDbSet_Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801260158302_Party_Setup_Added.resx">
+      <DependentUpon>201801260158302_Party_Setup_Added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

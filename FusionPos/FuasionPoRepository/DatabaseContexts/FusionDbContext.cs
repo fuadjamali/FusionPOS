@@ -11,5 +11,6 @@ namespace FuasionPoRepository.DatabaseContexts
         public DbSet<Category> Categories { get; set; }
         public DbSet<Item> Items { get; set; }
 
+        public System.Data.Entity.DbSet<FusionPosModels.EntityModels.Party> Parties { get; set; }
     }
 }
