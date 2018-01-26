@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.Remoting;
 
 namespace FusionPosModels.EntityModels
 {
@@ -17,7 +18,9 @@ namespace FusionPosModels.EntityModels
         public string Email { get; set; }
         public byte[] Image { get; set; }
         public string Address { get; set; }
+        [Display(Name = "Customer")]
         public bool IsCustomer { get; set; }
+        [Display(Name = "Supplier")]
         public bool IsSupplier { get; set; }
 
     }

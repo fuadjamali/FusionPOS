@@ -1,4 +1,5 @@
-﻿@model IEnumerable<FusionPosModels.EntityModels.Party>
+﻿@using FusionPosModels.EntityModels
+@model IEnumerable<FusionPosModels.EntityModels.Party>
 
 @{
     ViewBag.Title = "Index";
@@ -53,7 +54,17 @@
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Image)
+            @{
+                var imgsrc = "";
+                if (item.Image != null)
+                {
+                    var base64 = Convert.ToBase64String(item.Image);
+                    imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+                }
+
+            }
+            <img src="@imgsrc" style="max-width: 100px;max-height: 100px" />
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Address)

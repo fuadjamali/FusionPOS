@@ -12,5 +12,7 @@ namespace FuasionPoRepository.DatabaseContexts
         public DbSet<Item> Items { get; set; }
 
         public System.Data.Entity.DbSet<FusionPosModels.EntityModels.Party> Parties { get; set; }
+
+        public System.Data.Entity.DbSet<FusionPosModels.EntityModels.Employee> Employees { get; set; }
     }
 }
