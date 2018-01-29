@@ -6,19 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using FuasionPoRepository.DatabaseContexts;
+using FusionPosBll;
 using FusionPosModels.EntityModels;
 
 namespace FusionPosWeb.Controllers
 {
     public class OrganizationsController : Controller
     {
-        private FusionDbContext db = new FusionDbContext();
+        private OrganizationManager organizationManager =new OrganizationManager();
 
         // GET: Organizations
         public ActionResult Index()
         {
-            return View(db.Organizations.ToList());
+            return View(organizationManager.GetAll());
         }
 
         // GET: Organizations/Details/5
@@ -28,7 +28,7 @@ namespace FusionPosWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Organization organization = db.Organizations.Find(id);
+            Organization organization = organizationManager.Get(o=>o.Id==id).FirstOrDefault();
             if (organization == null)
             {
                 return HttpNotFound();
@@ -58,8 +58,7 @@ namespace FusionPosWeb.Controllers
                     organization.LogoImage =new byte[LogoImage.ContentLength];
                     LogoImage.InputStream.Read(organization.LogoImage, 0, LogoImage.ContentLength);
                 }
-                db.Organizations.Add(organization);
-                db.SaveChanges();
+                organizationManager.Add(organization);
                 return RedirectToAction("Index");
             }
 
@@ -73,7 +72,7 @@ namespace FusionPosWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Organization organization = db.Organizations.Find(id);
+            Organization organization = organizationManager.Get(o=>o.Id==id).FirstOrDefault();
             if (organization == null)
             {
                 return HttpNotFound();
@@ -90,8 +89,7 @@ namespace FusionPosWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(organization).State = EntityState.Modified;
-                db.SaveChanges();
+                organizationManager.Upate(organization);
                 return RedirectToAction("Index");
             }
             return View(organization);
@@ -104,7 +102,7 @@ namespace FusionPosWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Organization organization = db.Organizations.Find(id);
+            Organization organization = organizationManager.Get(o=>o.Id==id).FirstOrDefault();
             if (organization == null)
             {
                 return HttpNotFound();
@@ -117,9 +115,8 @@ namespace FusionPosWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Organization organization = db.Organizations.Find(id);
-            db.Organizations.Remove(organization);
-            db.SaveChanges();
+            Organization organization = organizationManager.Get(o=>o.Id==id).FirstOrDefault();
+            organizationManager.Remove(organization);
             return RedirectToAction("Index");
         }
 
@@ -127,7 +124,7 @@ namespace FusionPosWeb.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                
             }
             base.Dispose(disposing);
         }

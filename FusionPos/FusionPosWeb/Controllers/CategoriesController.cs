@@ -6,19 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using FuasionPoRepository.DatabaseContexts;
+using FusionPosBll;
 using FusionPosModels.EntityModels;
 
 namespace FusionPosWeb.Controllers
 {
     public class CategoriesController : Controller
     {
-        private FusionDbContext db = new FusionDbContext();
+        private CategoryManager categoryManager =new CategoryManager();
 
         // GET: Categories
         public ActionResult Index()
         {
-            var categories = db.Categories.Include(c => c.Parent);
+            var categories = categoryManager.GetAll();
             return View(categories.ToList());
         }
 
@@ -29,7 +29,8 @@ namespace FusionPosWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
+            //Category category = db.Categories.Find(id);
+            Category category= categoryManager.Get(c => c.Id == id).FirstOrDefault();
             if (category == null)
             {
                 return HttpNotFound();
@@ -40,7 +41,7 @@ namespace FusionPosWeb.Controllers
         // GET: Categories/Create
         public ActionResult Create()
         {
-            ViewBag.ParentId = new SelectList(db.Categories, "Id", "Name");
+            ViewBag.ParentId = new SelectList(categoryManager.GetAll(), "Id", "Name");
             return View();
         }
 
@@ -53,12 +54,19 @@ namespace FusionPosWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Add(category);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                bool res =categoryManager.Add(category);
+                if (res)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Create");
+                }
+                
             }
 
-            ViewBag.ParentId = new SelectList(db.Categories, "Id", "Name", category.ParentId);
+            ViewBag.ParentId = new SelectList(categoryManager.GetAll(), "Id", "Name", category.ParentId);
             return View(category);
         }
 
@@ -69,12 +77,12 @@ namespace FusionPosWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
+            Category category = categoryManager.Get(c=>c.Id==id).FirstOrDefault();
             if (category == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ParentId = new SelectList(db.Categories, "Id", "Name", category.ParentId);
+            ViewBag.ParentId = new SelectList(categoryManager.GetAll(), "Id", "Name", category.ParentId);
             return View(category);
         }
 
@@ -87,11 +95,17 @@ namespace FusionPosWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(category).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                bool res = categoryManager.Upate(category);
+                if (res)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Edit");
+                }
             }
-            ViewBag.ParentId = new SelectList(db.Categories, "Id", "Name", category.ParentId);
+            ViewBag.ParentId = new SelectList(categoryManager.GetAll(), "Id", "Name", category.ParentId);
             return View(category);
         }
 
@@ -102,7 +116,8 @@ namespace FusionPosWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Categories.Find(id);
+            
+            Category category = categoryManager.Get(c=>c.Id==id).FirstOrDefault();
             if (category == null)
             {
                 return HttpNotFound();
@@ -115,9 +130,9 @@ namespace FusionPosWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Category category = db.Categories.Find(id);
-            db.Categories.Remove(category);
-            db.SaveChanges();
+            Category category = categoryManager.Get(c=>c.Id==id).FirstOrDefault();
+            bool res = categoryManager.Remove(category);
+            
             return RedirectToAction("Index");
         }
 
@@ -125,7 +140,6 @@ namespace FusionPosWeb.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
             }
             base.Dispose(disposing);
         }

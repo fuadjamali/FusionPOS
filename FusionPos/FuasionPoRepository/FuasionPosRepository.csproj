@@ -50,7 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseRepository.cs" />
+    <Compile Include="CategoryRepository.cs" />
     <Compile Include="DatabaseContexts\FusionDbContext.cs" />
+    <Compile Include="ItemRepository.cs" />
     <Compile Include="Migrations\201801241127470_InitialCreate.cs" />
     <Compile Include="Migrations\201801241127470_InitialCreate.Designer.cs">
       <DependentUpon>201801241127470_InitialCreate.cs</DependentUpon>
@@ -63,7 +65,13 @@
     <Compile Include="Migrations\201801241457133_CategoryAndItemDbSetAdded.Designer.cs">
       <DependentUpon>201801241457133_CategoryAndItemDbSetAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801290905216_AllMonelAddedAsDeSet.cs" />
+    <Compile Include="Migrations\201801290905216_AllMonelAddedAsDeSet.Designer.cs">
+      <DependentUpon>201801290905216_AllMonelAddedAsDeSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="OrganizationRepository.cs" />
+    <Compile Include="OutletReporsitory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801241457133_CategoryAndItemDbSetAdded.resx">
       <DependentUpon>201801241457133_CategoryAndItemDbSetAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801290905216_AllMonelAddedAsDeSet.resx">
+      <DependentUpon>201801290905216_AllMonelAddedAsDeSet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

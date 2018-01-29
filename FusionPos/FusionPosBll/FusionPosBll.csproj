@@ -41,6 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseManager.cs" />
+    <Compile Include="CategoryManager.cs" />
+    <Compile Include="ItemManager.cs" />
+    <Compile Include="OrganizationManager.cs" />
+    <Compile Include="OutletManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

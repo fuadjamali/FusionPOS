@@ -6,19 +6,20 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using FuasionPoRepository.DatabaseContexts;
+using FusionPosBll;
 using FusionPosModels.EntityModels;
 
 namespace FusionPosWeb.Controllers
 {
     public class OutletsController : Controller
     {
-        private FusionDbContext db = new FusionDbContext();
+        private OutletManager outletManager =new OutletManager();
+        private OrganizationManager organizationManager =new OrganizationManager();
 
         // GET: Outlets
         public ActionResult Index()
         {
-            var outlets = db.Outlets.Include(o => o.Organization);
+            var outlets = outletManager.GetAll();
             return View(outlets.ToList());
         }
 
@@ -29,7 +30,7 @@ namespace FusionPosWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Outlet outlet = db.Outlets.Find(id);
+            Outlet outlet = outletManager.Get(o=>o.Id==id).FirstOrDefault();
             if (outlet == null)
             {
                 return HttpNotFound();
@@ -40,7 +41,7 @@ namespace FusionPosWeb.Controllers
         // GET: Outlets/Create
         public ActionResult Create()
         {
-            ViewBag.OrganizationId = new SelectList(db.Organizations, "Id", "Name");
+            ViewBag.OrganizationId = new SelectList(organizationManager.GetAll(), "Id", "Name");
             return View();
         }
 
@@ -53,12 +54,11 @@ namespace FusionPosWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Outlets.Add(outlet);
-                db.SaveChanges();
+                outletManager.Add(outlet);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.OrganizationId = new SelectList(db.Organizations, "Id", "Name", outlet.OrganizationId);
+            ViewBag.OrganizationId = new SelectList(organizationManager.GetAll(), "Id", "Name", outlet.OrganizationId);
             return View(outlet);
         }
 
@@ -69,12 +69,12 @@ namespace FusionPosWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Outlet outlet = db.Outlets.Find(id);
+            Outlet outlet = outletManager.Get(o=>o.Id==id).FirstOrDefault();
             if (outlet == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.OrganizationId = new SelectList(db.Organizations, "Id", "Name", outlet.OrganizationId);
+            ViewBag.OrganizationId = new SelectList(organizationManager.GetAll(), "Id", "Name", outlet.OrganizationId);
             return View(outlet);
         }
 
@@ -87,11 +87,10 @@ namespace FusionPosWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(outlet).State = EntityState.Modified;
-                db.SaveChanges();
+                outletManager.Upate(outlet);
                 return RedirectToAction("Index");
             }
-            ViewBag.OrganizationId = new SelectList(db.Organizations, "Id", "Name", outlet.OrganizationId);
+            ViewBag.OrganizationId = new SelectList(organizationManager.GetAll(), "Id", "Name", outlet.OrganizationId);
             return View(outlet);
         }
 
@@ -102,7 +101,7 @@ namespace FusionPosWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Outlet outlet = db.Outlets.Find(id);
+            Outlet outlet = outletManager.Get(o=>o.Id==id).FirstOrDefault();
             if (outlet == null)
             {
                 return HttpNotFound();
@@ -115,9 +114,8 @@ namespace FusionPosWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Outlet outlet = db.Outlets.Find(id);
-            db.Outlets.Remove(outlet);
-            db.SaveChanges();
+            Outlet outlet = outletManager.Get(o=>o.Id==id).FirstOrDefault();
+            outletManager.Remove(outlet);
             return RedirectToAction("Index");
         }
 
@@ -125,7 +123,7 @@ namespace FusionPosWeb.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                
             }
             base.Dispose(disposing);
         }

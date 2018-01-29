@@ -6,19 +6,20 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using FuasionPoRepository.DatabaseContexts;
 using FusionPosModels.EntityModels;
+using FusionPosBll;
 
 namespace FusionPosWeb.Controllers
 {
     public class ItemsController : Controller
     {
-        private FusionDbContext db = new FusionDbContext();
+        private ItemManager itemManager = new ItemManager();
+        private CategoryManager categoryManager = new CategoryManager();
 
         // GET: Items
         public ActionResult Index()
         {
-            var items = db.Items.Include(i => i.Category);
+            var items = itemManager.GetAll();
             return View(items.ToList());
         }
 
@@ -29,7 +30,7 @@ namespace FusionPosWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Item item = db.Items.Find(id);
+            Item item = itemManager.Get(i=>i.Id==id).FirstOrDefault();
             if (item == null)
             {
                 return HttpNotFound();
@@ -40,7 +41,7 @@ namespace FusionPosWeb.Controllers
         // GET: Items/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name");
+            ViewBag.CategoryId = new SelectList(categoryManager.GetAll(), "Id", "Name");
             return View();
         }
 
@@ -53,12 +54,12 @@ namespace FusionPosWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Items.Add(item);
-                db.SaveChanges();
+                itemManager.Add(item);
+                
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", item.CategoryId);
+            ViewBag.CategoryId = new SelectList(categoryManager.GetAll(), "Id", "Name", item.CategoryId);
             return View(item);
         }
 
@@ -69,12 +70,12 @@ namespace FusionPosWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Item item = db.Items.Find(id);
+            Item item = itemManager.Get(i=>i.Id==id).FirstOrDefault();
             if (item == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", item.CategoryId);
+            ViewBag.CategoryId = new SelectList(categoryManager.GetAll(), "Id", "Name", item.CategoryId);
             return View(item);
         }
 
@@ -87,11 +88,10 @@ namespace FusionPosWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(item).State = EntityState.Modified;
-                db.SaveChanges();
+                itemManager.Upate(item);
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", item.CategoryId);
+            ViewBag.CategoryId = new SelectList(categoryManager.GetAll(), "Id", "Name", item.CategoryId);
             return View(item);
         }
 
@@ -102,7 +102,7 @@ namespace FusionPosWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Item item = db.Items.Find(id);
+            Item item = itemManager.Get(i=>i.Id==id).FirstOrDefault();
             if (item == null)
             {
                 return HttpNotFound();
@@ -115,9 +115,9 @@ namespace FusionPosWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Item item = db.Items.Find(id);
-            db.Items.Remove(item);
-            db.SaveChanges();
+            Item item = itemManager.Get(i=>i.Id==id).FirstOrDefault();
+            itemManager.Remove(item);
+            
             return RedirectToAction("Index");
         }
 
@@ -125,7 +125,7 @@ namespace FusionPosWeb.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+               
             }
             base.Dispose(disposing);
         }
