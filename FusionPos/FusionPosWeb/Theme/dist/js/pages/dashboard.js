@@ -125,7 +125,7 @@ $(function () {
   });
 
   /* Morris.js Charts */
-  // Sales chart
+  // Sale chart
   var area = new Morris.Area({
     element   : 'revenue-chart',
     resize    : true,
@@ -183,9 +183,9 @@ $(function () {
     resize   : true,
     colors   : ['#3c8dbc', '#f56954', '#00a65a'],
     data     : [
-      { label: 'Download Sales', value: 12 },
-      { label: 'In-Store Sales', value: 30 },
-      { label: 'Mail-Order Sales', value: 20 }
+      { label: 'Download Sale', value: 12 },
+      { label: 'In-Store Sale', value: 30 },
+      { label: 'Mail-Order Sale', value: 20 }
     ],
     hideHover: 'auto'
   });

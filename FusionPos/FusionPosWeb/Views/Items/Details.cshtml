@@ -5,71 +5,76 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Details of Item</h3>
+    </div>
+    <div class="box-body">
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Category.Name)
+                </dt>
 
-<div>
-    <h4>Item</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.Name)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Category.Name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Category.Name)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Code)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Code)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Code)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Code)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CostPrice)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CostPrice)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CostPrice)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CostPrice)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SalePrice)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SalePrice)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SalePrice)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SalePrice)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Image)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Image)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
 
-    </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

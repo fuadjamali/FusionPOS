@@ -14,5 +14,7 @@ namespace FusionPosModels.EntityModels
         [Required]
         public int ExpenseCategoryId { get; set; }
         public virtual ExpenseCategory ExpenseCategory { get; set; }
+
+        
     }
 }

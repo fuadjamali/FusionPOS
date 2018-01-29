@@ -7558,9 +7558,9 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FuasionPoRepository\FuasionPosRepository.csproj">
-      <Project>{82440955-da09-479f-b0c9-1d5eb6d45327}</Project>
-      <Name>FuasionPosRepository</Name>
+    <ProjectReference Include="..\FusionPosBll\FusionPosBll.csproj">
+      <Project>{dd311935-6492-439c-989c-2cdb27f39e93}</Project>
+      <Name>FusionPosBll</Name>
     </ProjectReference>
     <ProjectReference Include="..\FusionPosModels\FusionPosModels.csproj">
       <Project>{91170ae9-2722-4b3d-92a5-5f86b32e9788}</Project>

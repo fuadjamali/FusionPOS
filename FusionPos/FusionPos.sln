@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FusionPosModels", "FusionPo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuasionPosRepository", "FuasionPoRepository\FuasionPosRepository.csproj", "{82440955-DA09-479F-B0C9-1D5EB6D45327}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FusionPosBll", "FusionPosBll\FusionPosBll.csproj", "{DD311935-6492-439C-989C-2CDB27F39E93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{82440955-DA09-479F-B0C9-1D5EB6D45327}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82440955-DA09-479F-B0C9-1D5EB6D45327}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82440955-DA09-479F-B0C9-1D5EB6D45327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD311935-6492-439C-989C-2CDB27F39E93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD311935-6492-439C-989C-2CDB27F39E93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD311935-6492-439C-989C-2CDB27F39E93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD311935-6492-439C-989C-2CDB27F39E93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

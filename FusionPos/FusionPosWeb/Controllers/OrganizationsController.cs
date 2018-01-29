@@ -39,7 +39,8 @@ namespace FusionPosWeb.Controllers
         // GET: Organizations/Create
         public ActionResult Create()
         {
-            return View();
+            Organization organization =new Organization();
+            return View(organization);
         }
 
         // POST: Organizations/Create
@@ -47,10 +48,16 @@ namespace FusionPosWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Code,ContactNo,LogoImage,Address")] Organization organization)
+        public ActionResult Create([Bind(Include = "Id,Name,Code,ContactNo,Address")] Organization organization,HttpPostedFileBase LogoImage)
         {
             if (ModelState.IsValid)
             {
+                if (LogoImage != null)
+                {
+                    
+                    organization.LogoImage =new byte[LogoImage.ContentLength];
+                    LogoImage.InputStream.Read(organization.LogoImage, 0, LogoImage.ContentLength);
+                }
                 db.Organizations.Add(organization);
                 db.SaveChanges();
                 return RedirectToAction("Index");

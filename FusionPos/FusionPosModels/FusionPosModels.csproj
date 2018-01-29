@@ -57,6 +57,12 @@
     <Compile Include="EntityModels\Organization.cs" />
     <Compile Include="EntityModels\Outlet.cs" />
     <Compile Include="EntityModels\Party.cs" />
+    <Compile Include="EntityModels\PurchaseReceive.cs" />
+    <Compile Include="EntityModels\PurchaseReceiveItems.cs" />
+    <Compile Include="EntityModels\Sale.cs" />
+    <Compile Include="EntityModels\SaleItems.cs" />
+    <Compile Include="EntityModels\ExpenseEntry.cs" />
+    <Compile Include="EntityModels\ExpenseEntryItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
